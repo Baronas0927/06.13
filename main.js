@@ -1,21 +1,32 @@
-//oru API
-console.log("jo");
-
-document.querySelector("#submit").addEventListener("click", searchCity)
-fetch("https://api.meteo.lt/v1/places/adakavas/forecasts/long-term")
-    .then(response=> {return response.json()})
-    .then(data => {printToConsole(data); })
-
-function printToConsole(data){
-    console.log(data["place"]);//istraukia vietos pavadinima
-    console.log(data.place);//istraukia vietos pavadinima
-    console.log(data.place.name);
-}
+document.querySelector("#submit").addEventListener("click", searchCity);
 
 function searchCity(e){
     e.preventDefault();
     let city = document.querySelector("#city");
-    console.log(city.value);
-    city.value = "";
+    // let administrativeDivision = document.querySelector("#administrativeDivision");
+    callApi(city.value);
+    // city.value = "";
+    // callApi(administrativeDivision.value);
+    // administrativeDivision.value = "";
+}
 
+function callApi(city,){
+    let url = "https://api.meteo.lt/v1/places/" + city + "/forecasts/long-term";
+    console.log(url);
+    fetch(url)
+    .then(response => {return response.json(); })
+    .then(data => { printData(data) })
+}
+function printData(data) {
+    printTime(data);
+    printAdministrativeDivision(data);
+}
+function printTime(data){
+    document.querySelector("#p1").innerText = data.forecastTimestamps[0].forecastTimeUtc;
+    console.log(data.forecastTimestamps[0].forecastTimeUtc);
+}
+
+function printAdministrativeDivision(data){
+    document.querySelector("#p2").innerText = data.place.administrativeDivision;
+    console.log(data.place.administrativeDivision);
 }
