@@ -3,11 +3,7 @@ document.querySelector("#submit").addEventListener("click", searchCity);
 function searchCity(e){
     e.preventDefault();
     let city = document.querySelector("#city");
-    // let administrativeDivision = document.querySelector("#administrativeDivision");
     callApi(city.value);
-    // city.value = "";
-    // callApi(administrativeDivision.value);
-    // administrativeDivision.value = "";
 }
 
 function callApi(city,){
