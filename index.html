@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="main.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="main.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
 </head>
+
 <body>
-    <div class="mb-3" id="get">
-    <form action="" method="get">
-        <input type="text" id="city" class="form-control" placeholder="Įrašykite miestą">
-        <button type="submit" id="submit" class="btn btn-info">Ieškoti</button>
-      </form>
-    </div>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="mb-3" id="get">
+        <form action="" method="get">
+          <input type="text" id="city" class="form-control" placeholder="Įrašykite miestą ">
+          <button type="submit" id="submit" class="btn btn-info" button style='font-size:24px'>Ieškoti <i
+              class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
       <div class="card" style="width: 18rem;" id="orai">
         <div class="card-body">
           <h5 class="card-title">Orai</h5>
-          <span>Pasirinktas miestas: </span><span class="card-text" id="p1"> </span><br>
+          <span>Laikas: </span><span class="card-text" id="p1"> </span><br>
           <span>Savivaldybė: </span><span class="card-text" id="p2"> </span><br>
           <span>Temperatūra: </span><span class="card-text" id="p3"> </span><br>
-          <span>Jutinimė temperatūra: </span><span class="card-text" id="p4"> </span><br>
+          <span>Jutiminė temperatūra: </span><span class="card-text" id="p4"> </span><br>
           <span>Vėjo greitis: </span><span class="card-text" id="p5"> </span><br>
           <span>Vėjo gūsis: </span><span class="card-text" id="p6"> </span><br>
           <span>Vėjo kryptis: </span><span class="card-text" id="p7"> </span><br>
           <span>Debesuotumas: </span><span class="card-text" id="p8"> </span><br>
         </div>
       </div>
-     
+    </div>
+    <div class="col-3"></div>
+  </div>
 </body>
+
 </html>
