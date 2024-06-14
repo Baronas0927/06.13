@@ -20,14 +20,12 @@ function printData(data) {
     (date.getMonth() +1).toString().padStart(2,"0")+ "-" + 
     date.getDate().toString().padStart(2,"0") + " " +
     date.getHours().toString().padStart(2,"0") +":00:00" ; // create a Date object with the current date and time
-    // curDate = curDate.toISOString(); // convert to UTC timestamp string
 
     for (let i = 0; i < data.forecastTimestamps.length; i++) {
         const forecast = data.forecastTimestamps[i];
         console.log(curDate, forecast.forecastTimeUtc);
         if (curDate == forecast.forecastTimeUtc) {
             printTime(data);//2024-06-14 10:00:00
-            //printAdministrativeDivision(data);
             dayData(data, i);
             break;
         }
