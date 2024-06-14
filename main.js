@@ -14,9 +14,26 @@ function callApi(city){
     .then(data => {printData(data) })
 } 
 function printData(data) {
-    printTime(data);
-    printAdministrativeDivision(data);
-    printWeather(data);
+        let date = new Date();
+    let curDate = 
+    date.getFullYear() + "-" +
+    (date.getMonth() +1).toString().padStart(2,"0")+ "-" + 
+    date.getDate().toString().padStart(2,"0") + " " +
+    date.getHours().toString().padStart(2,"0") +":00:00" ; // create a Date object with the current date and time
+    // curDate = curDate.toISOString(); // convert to UTC timestamp string
+
+    for (let i = 0; i < data.forecastTimestamps.length; i++) {
+        const forecast = data.forecastTimestamps[i];
+        console.log(curDate, forecast.forecastTimeUtc);
+        if (curDate == forecast.forecastTimeUtc) {
+            printTime(data);//2024-06-14 10:00:00
+            printAdministrativeDivision(data);
+            printWeather(data);
+            dayData(data, i);
+            break;
+        }
+    }
+   
 }
 function printTime(data){
     document.querySelector("#p1").innerText = data.forecastTimestamps[0].forecastTimeUtc;
@@ -25,17 +42,16 @@ function printTime(data){
 function printAdministrativeDivision(data){
     document.querySelector("#p2").innerText = data.place.administrativeDivision;
 }
-
 function printWeather(data) {
-    let date = new Date();
-    let curDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), 0, 0, 0); // create a Date object with the current date and time
-    curDate = curDate.toISOString(); // convert to UTC timestamp string
 
-    for (let i = 0; i < data.forecastTimestamps.length; i++) {
-        const forecast = data.forecastTimestamps[i];
-        if (curDate === forecast.forecastTimeUtc) {
-            console.log("radau");
-            break;
-        }
-    }
+  
 }
+
+function dayData(data,pos){
+        document.querySelector("#p3").innerText = data.forecastTimestamps[pos].airTemperature;
+        console.log(" ");
+        document.querySelector("#p4").innerText = data.forecastTimestamps[pos].feelsLikeTemperature;
+}
+
+
+
