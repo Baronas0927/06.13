@@ -1,3 +1,14 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 body{
     background-image: url(sunny.jpg);
+}
+#get{
+    margin-top: 15%;
+    margin-left: 20%;
+}
+#orai{
+    margin-left: 20%;
+}
+#submit{
+    margin-top: 10px;
 }
